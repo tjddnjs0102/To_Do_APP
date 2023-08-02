@@ -13,6 +13,7 @@ public class ToDoController {
     @Autowired
     private ToDoRepository toDoRepository;
 
+
     @PostMapping
     public ToDoEntity create(@RequestBody ToDoEntity toDoEntity) {
         return toDoRepository.save(toDoEntity);
@@ -27,8 +28,6 @@ public class ToDoController {
     public ToDoEntity readOne(@PathVariable Long id) {
         return toDoRepository.findById(id).orElseThrow(() -> new RuntimeException("ToDo not found"));
     }
-
-
 
     @PutMapping("/{id}")
     public ToDoEntity update(@PathVariable Long id,
